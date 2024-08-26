@@ -38,6 +38,7 @@ class ExpandingCutoffSplitter(BaseSplitter):
     The test set is defined by a forecast horizon relative to the last point in the
     training set, containing as many subsequent indices as specified by the `fh`
     parameter.
+    ```
                           c
                           ↓
     |---------------------|←---fh---→|------|
@@ -45,6 +46,7 @@ class ExpandingCutoffSplitter(BaseSplitter):
     | * * * * * * * * * * * x x x x x x - - |
     | * * * * * * * * * * * * x x x x x x - |
     | * * * * * * * * * * * * * x x x x x x |
+    ```
 
     ``c`` = cutoff date or index.
 
