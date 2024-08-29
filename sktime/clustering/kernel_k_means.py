@@ -1,5 +1,6 @@
 """Time series kernel kmeans."""
-from typing import Dict, Union
+
+from typing import Union
 
 import numpy as np
 from numpy.random import RandomState
@@ -74,6 +75,9 @@ class TimeSeriesKernelKMeans(_TslearnAdapter, BaseClusterer):
         # estimator type
         # --------------
         "capability:multivariate": True,
+        "capability:out_of_sample": True,
+        "capability:predict": True,
+        "capability:predict_proba": False,
     }
 
     # defines the name of the attribute containing the tslearn estimator
@@ -117,7 +121,7 @@ class TimeSeriesKernelKMeans(_TslearnAdapter, BaseClusterer):
         super().__init__(n_clusters=n_clusters)
 
     @classmethod
-    def get_test_params(cls, parameter_set="default") -> Dict:
+    def get_test_params(cls, parameter_set="default") -> dict:
         """Return testing parameter settings for the estimator.
 
         Parameters
